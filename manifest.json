@@ -1,0 +1,13 @@
+{
+  "name": "Tab Action",
+  "description": "Build an Extension!",
+  "version": "1.0",
+  "manifest_version": 3,
+  "content_scripts": [
+    {
+      "matches": ["https://*.google.com/*", "https://*.translate.google.com/*", "https://*.youtube.com/*"],
+      "css": ["./css/style.css"],
+      "js": ["./js/script.js"]
+    }
+  ]
+}

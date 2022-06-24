@@ -66,13 +66,17 @@ function translateRemoveAction() {
 }
 function youtubeAction() {
   if (window.location.hostname === 'www.youtube.com') {
-    if (e.ctrlKey && e.key === 'q') {
-      const inputElement = document.querySelector('input')
-      if (currentInput) {
-        inputElement.value = ''
-        currentInput.focus()
+    console.log('youtube here')
+    document.addEventListener('keydown', e => {
+      if (e.ctrlKey && e.key === 'q') {
+        const inputElement = document.querySelector('input')
+        if (inputElement) {
+          inputElement.value = ''
+          inputElement.focus()
+        }
       }
-    }
+    })
+
   }
 }
 window.onload = function () {

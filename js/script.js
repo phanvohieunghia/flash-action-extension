@@ -49,7 +49,7 @@ function translateRemoveAction() {
           currentInput.value = ''
           currentInput.focus()
         }
-      } else if (e.ctrlKey && e.key === 'Q') {
+      } else if (e.altKey && e.key === 'q') {
         const currentButton = document.querySelectorAll('button')[28]
         if (currentButton)
           currentButton.click()
@@ -66,13 +66,18 @@ function translateRemoveAction() {
 }
 function youtubeAction() {
   if (window.location.hostname === 'www.youtube.com') {
-    console.log('youtube here')
     document.addEventListener('keydown', e => {
       if (e.ctrlKey && e.key === 'q') {
         const inputElement = document.querySelector('input')
         if (inputElement) {
           inputElement.value = ''
           inputElement.focus()
+        }
+      }
+      if (e.altKey && e.key === 'q') {
+        const skipElement = document.querySelector('.ytp-ad-skip-button')
+        if (skipElement) {
+          skipElement.click()
         }
       }
     })

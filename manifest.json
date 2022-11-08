@@ -5,7 +5,13 @@
   "manifest_version": 3,
   "content_scripts": [
     {
-      "matches": ["https://*.google.com/*", "https://*.translate.google.com/*", "https://*.youtube.com/*"],
+      "matches": [
+        "https://*.google.com/*", 
+        "https://*.translate.google.com/*", 
+        "https://*.youtube.com/*", 
+        "https://*.oxfordlearnersdictionaries.com/*",
+        "https://*.cambridge.org/*"
+      ],
       "css": ["./css/style.css"],
       "js": ["./js/script.js"]
     }

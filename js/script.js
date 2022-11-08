@@ -26,7 +26,12 @@ function googleTabAction() {
     })
   }, 300)
 }
-
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  })
+}
 function translationAction() {
   const translateElements = document.querySelectorAll('button')
   if (translateElements && translateElements[24])
@@ -38,10 +43,7 @@ function translationAction() {
     }
     if (e.altKey && e.key === 'q') {
       const currentButton = document.querySelectorAll('button')[24]
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-      })
+      scrollToTop()
       if (currentButton)
         currentButton.click()
       const currentInput = document.querySelectorAll('input')[0]
@@ -55,6 +57,7 @@ function translationAction() {
         currentButton.click()
     } else if (e.key === '/') {
       const currentInput = document.querySelectorAll('textarea')[0]
+      scrollToTop()
       const timeout = setTimeout(() => {
         currentInput.focus()
         clearTimeout(timeout)
@@ -101,10 +104,7 @@ function oxfordDictionariesAction() {
   }, 100)
   document.addEventListener('keydown', e => {
     if (e.altKey && e.key === 'q') {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-      })
+      scrollToTop()
       inputElement.value = ''
       inputElement.focus()
     }
@@ -115,10 +115,7 @@ function oxfordDictionariesAction() {
       soundElements[1].click()
     }
     else if(e.key === '/') {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-      })
+      scrollToTop()
       const timeout = setTimeout(() => {
         inputElement.focus()
         clearTimeout(timeout)
@@ -140,10 +137,7 @@ function cambridgeDictionariesAction() {
   }, 100)
   document.addEventListener('keydown', e => {
     if (e.altKey && e.key === 'q') {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-      })
+      scrollToTop()
       inputElement.value = ''
       inputElement.focus()
     }

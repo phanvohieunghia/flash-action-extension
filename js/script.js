@@ -27,7 +27,7 @@ function googleTabAction() {
   }, 300)
 }
 
-function translateRemoveAction() {
+function translationAction() {
   const translateElements = document.querySelectorAll('button')
   if (translateElements && translateElements[24])
     translateElements[24].style.transition = 'all 1s ease'
@@ -53,6 +53,12 @@ function translateRemoveAction() {
       const currentButton = document.querySelectorAll('button')[27]
       if (currentButton)
         currentButton.click()
+    } else if (e.key === '/') {
+      const currentInput = document.querySelectorAll('textarea')[0]
+      const timeout = setTimeout(() => {
+        currentInput.focus()
+        clearTimeout(timeout)
+      }, 100)
     }
   })
   document.addEventListener('keyup', e => {
@@ -169,7 +175,7 @@ window.onload = function () {
       googleTabAction()
       break
     case 'translate.google.com':
-      translateRemoveAction()
+      translationAction()
       break
     case 'www.youtube.com':
       youtubeAction()
@@ -181,9 +187,4 @@ window.onload = function () {
       cambridgeDictionariesAction()
       break
   }
-  
-  
-  
-  
-  
 }

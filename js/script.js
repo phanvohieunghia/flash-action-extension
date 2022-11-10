@@ -37,7 +37,7 @@ function translationAction() {
   if (translateElements && translateElements[24])
     translateElements[24].style.transition = 'all 1s ease'
   document.addEventListener('keydown', e => {
-    if (e.key === 'Control') {
+    if (e.altKey) {
       if (translateElements[24])
         translateElements[24].classList.add('nghia')
     }
@@ -65,7 +65,7 @@ function translationAction() {
     }
   })
   document.addEventListener('keyup', e => {
-    if (e.key === 'Control') {
+    if (e.key == 'Alt') {
       const isCheckClass = translateElements[24]
       if (isCheckClass)
         isCheckClass.classList.remove('nghia')

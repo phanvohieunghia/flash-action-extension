@@ -59,6 +59,7 @@ function translationAction() {
       const currentInput = document.querySelectorAll('textarea')[0]
       scrollToTop()
       const timeout = setTimeout(() => {
+        currentInput.setSelectionRange(currentInput.value.length, currentInput.value.length)
         currentInput.focus()
         clearTimeout(timeout)
       }, 100)
@@ -70,6 +71,20 @@ function translationAction() {
       if (isCheckClass)
         isCheckClass.classList.remove('nghia')
     }
+  })
+  document.addEventListener('keydown', e => {
+    if(e.altKey && e.key === '1') 
+      document.getElementById('i8')?.click()
+    else if(e.altKey && e.key === '2') 
+      document.getElementById('i9')?.click()
+    else if(e.altKey && e.key === '3') 
+      document.getElementById('i10')?.click()
+    else if(e.altKey && e.key === '4') 
+      document.getElementById('i11')?.click()
+    else if(e.altKey && e.key === '5') 
+      document.getElementById('i12')?.click()
+    else if(e.altKey && e.key === '6') 
+      document.getElementById('i13')?.click()
   })
 }
 
@@ -131,7 +146,6 @@ function cambridgeDictionariesAction() {
     inputElement =  document.querySelector('#searchword')
     soundElements =  document.querySelectorAll('.i-volume-up')
     if (inputElement && soundElements) {
-      console.log(inputElement)
       clearInterval(interval)
     }
   }, 100)

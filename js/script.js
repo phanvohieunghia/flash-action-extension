@@ -103,6 +103,18 @@ function youtubeAction() {
         skipElement.click()
       }
     }
+    else if (e.altKey && e.key === 'ArrowUp') {
+      const videoElement = document.getElementsByClassName("video-stream html5-main-video")[0]
+      videoElement.playbackRate = videoElement.playbackRate + 0.1
+    }
+    else if (e.altKey && e.key === 'ArrowDown') {
+      const videoElement = document.getElementsByClassName("video-stream html5-main-video")[0]
+      videoElement.playbackRate = videoElement.playbackRate - 0.1
+    }
+    else if (e.altKey && e.key === 'Shift') {
+      const videoElement = document.getElementsByClassName("video-stream html5-main-video")[0]
+      videoElement.playbackRate = 1
+    }
   })
 }
 

@@ -87,26 +87,28 @@ function translationAction() {
       document.getElementById('i13')?.click()
   })
 }
-function internalYoutubeAction() {
-  const timeout1 = setTimeout(() => {
-    const preElement = document.querySelector('.nghia-speed')
-    if(preElement) preElement.remove()
-    clearTimeout(timeout1)
-  }, 900)
-
-  const speedUI = document.querySelector('#content')
-  const videoElement = document.getElementsByClassName("video-stream html5-main-video")[0]
-  speedUI.style.position = 'relative'
-  const child = document.createElement('div')
-  child.className = 'nghia-speed'
-  child.innerText = `${videoElement.playbackRate.toFixed(1)}x`
-  speedUI.appendChild(child)
-  const timeout = setTimeout(() => {
-    child.classList.add('none');
-    clearTimeout(timeout)
-  }, 900)
-}
 function youtubeAction() {
+  function showSpeedUI(text) {
+    const timeout1 = setTimeout(() => {
+      const preElement = document.querySelector('.nghia-speed')
+      if(preElement) preElement.remove()
+      clearTimeout(timeout1)
+    }, 900)
+    const speedUI = document.querySelector('#content')
+    speedUI.style.position = 'relative'
+    const child = document.createElement('div')
+    child.className = 'nghia-speed'
+    child.innerText = text
+    speedUI.appendChild(child)
+    const timeout = setTimeout(() => {
+      child.classList.add('none');
+      clearTimeout(timeout)
+    }, 900)
+  }
+  function focusVideo() {
+    const video = document.querySelector('video')
+    video.focus()
+  }
   document.addEventListener('keydown', e => {
     if (e.altKey && e.key === 'q') {
       const inputElement = document.querySelector('input')
@@ -124,17 +126,21 @@ function youtubeAction() {
     else if (e.altKey && e.key === 'ArrowUp') {
       const videoElement = document.getElementsByClassName("video-stream html5-main-video")[0]
       videoElement.playbackRate = videoElement.playbackRate + 0.1
-      internalYoutubeAction()
+      showSpeedUI(`${videoElement.playbackRate.toFixed(1)}x`)
     }
     else if (e.altKey && e.key === 'ArrowDown') {
       const videoElement = document.getElementsByClassName("video-stream html5-main-video")[0]
       videoElement.playbackRate = videoElement.playbackRate - 0.1
-      internalYoutubeAction()
+      showSpeedUI(`${videoElement.playbackRate.toFixed(1)}x`)
     }
     else if (e.altKey && e.key === 'Shift') {
       const videoElement = document.getElementsByClassName("video-stream html5-main-video")[0]
       videoElement.playbackRate = 1
-      internalYoutubeAction()
+      showSpeedUI(`${videoElement.playbackRate.toFixed(1)}x`)
+    }
+    else if (e.altKey && e.key === 'Enter') {
+      focusVideo()
+      showSpeedUI('Focus')
     }
   })
 }

@@ -24,6 +24,25 @@ function googleTabAction() {
         }
       })
     })
+    document.addEventListener('keydown', e => {
+      if(e.altKey && e.key === 'q') {
+        const currentInput = document.querySelector('input')
+        if (currentInput) {
+          currentInput.value = ''
+          currentInput.focus()
+        }
+      }
+      else if(e.key === '/') {
+        const currentInput = document.querySelector('input')
+        if (currentInput) {
+          const timeout = setTimeout(() => {
+            currentInput.setSelectionRange(currentInput.value.length, currentInput.value.length)
+            currentInput.focus()
+            clearTimeout(timeout)
+          }, 100)
+        }
+      }
+    })
   }, 300)
 }
 function scrollToTop() {

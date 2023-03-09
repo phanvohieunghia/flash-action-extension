@@ -26,7 +26,7 @@ function googleTabAction() {
     })
     document.addEventListener('keydown', e => {
       if(e.altKey && e.key === 'q') {
-        const currentInput = document.querySelector('input')
+        const currentInput = document.querySelekctor('input')
         if (currentInput) {
           currentInput.value = ''
           currentInput.focus()
@@ -45,23 +45,26 @@ function googleTabAction() {
     })
   }, 300)
 }
+
 function scrollToTop() {
   window.scrollTo({
     top: 0,
     behavior: 'smooth',
   })
 }
+
 function translationAction() {
   const translateElements = document.querySelectorAll('button')
-  if (translateElements && translateElements[24])
-    translateElements[24].style.transition = 'all 1s ease'
+  console.log(translateElements)
+  if (translateElements && translateElements[25])
+    translateElements[25].style.transition = 'all 1s ease'
   document.addEventListener('keydown', e => {
     if (e.altKey) {
-      if (translateElements[24])
-        translateElements[24].classList.add('nghia')
+      if (translateElements[25])
+        translateElements[25].classList.add('nghia')
     }
     if (e.altKey && e.key === 'q') {
-      const currentButton = document.querySelectorAll('button')[24]
+      const currentButton = document.querySelectorAll('button')[25]
       scrollToTop()
       if (currentButton)
         currentButton.click()
@@ -71,7 +74,7 @@ function translationAction() {
         currentInput.focus()
       }
     } else if (e.altKey && e.key === '[') {
-      const currentButton = document.querySelectorAll('button')[27]
+      const currentButton = document.querySelectorAll('button')[28]
       if (currentButton)
         currentButton.click()
     } else if (e.key === '/') {
@@ -86,7 +89,7 @@ function translationAction() {
   })
   document.addEventListener('keyup', e => {
     if (e.key == 'Alt') {
-      const isCheckClass = translateElements[24]
+      const isCheckClass = translateElements[25]
       if (isCheckClass)
         isCheckClass.classList.remove('nghia')
     }
@@ -106,6 +109,7 @@ function translationAction() {
       document.getElementById('i13')?.click()
   })
 }
+
 function youtubeAction() {
   function showSpeedUI(text) {
     const timeout1 = setTimeout(() => {

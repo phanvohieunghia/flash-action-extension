@@ -16,6 +16,13 @@
   top: 1000px;
   animation: 1s ease-in-out toggleAppearance; 
 }
+
+.nghia-chatgpt:hover {
+  transition: 0.2s;
+  transform: translateY(-3px);
+  cursor: pointer;
+}
+
 @keyframes toggleAppearance {
   from {
     opacity: 0.5;

@@ -10,7 +10,8 @@
         "https://*.translate.google.com/*", 
         "https://*.youtube.com/*", 
         "https://*.oxfordlearnersdictionaries.com/*",
-        "https://*.cambridge.org/*"
+        "https://*.cambridge.org/*",
+        "https://*.openai.com/*"
       ],
       "css": ["./css/style.css"],
       "js": ["./js/script.js"]

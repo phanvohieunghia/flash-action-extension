@@ -55,7 +55,6 @@ function scrollToTop() {
 
 function translationAction() {
   const translateElements = document.querySelectorAll('button')
-  console.log(translateElements)
   if (translateElements && translateElements[25])
     translateElements[25].style.transition = 'all 1s ease'
   document.addEventListener('keydown', e => {
@@ -238,8 +237,46 @@ function cambridgeDictionariesAction() {
   })
 }
 
+function chatGPTAction() {
+  let searchContainer = ""
+  let index = 1
+  const test = document.querySelectorAll('textarea')[0]
+  test.addEventListener('input', e => {
+    searchContainer = e.target.value
+  })
+
+  document.addEventListener('keydown', e => {
+
+    if (e.altKey && e.key === 'q') {
+    const currentInput = document.querySelectorAll('textarea')[0]
+      if (currentInput) {
+        currentInput.value = ''
+        currentInput.focus()
+      }
+    } else if (e.key === '/') {
+      const currentInput = document.querySelectorAll('textarea')[0]
+      scrollToTop()
+      const timeout = setTimeout(() => {
+      currentInput.setSelectionRange(currentInput.value.length, currentInput.value.length)
+      currentInput.focus()
+      clearTimeout(timeout)
+      })
+    } else if(e.key === 'Enter') {
+      const elements = document.querySelectorAll('div')
+      for(const element of elements) {
+        if(element.innerText === searchContainer && element.firstChild.nodeType === 3 ) {
+            element.classList.add('nghia-chatgpt')
+            element.addEventListener('click', () => {
+            navigator.clipboard.writeText(element.innerText)
+          })
+        }
+      }
+    }
+  })
+}
+
 window.onload = function () {
-  console.log(window.location.hostname)
+  // console.log(window.location.hostname)
   switch (window.location.hostname) {
     case 'www.google.com':
       googleTabAction()
@@ -256,5 +293,10 @@ window.onload = function () {
     case 'dictionary.cambridge.org':
       cambridgeDictionariesAction()
       break
+    case 'chat.openai.com':
+      chatGPTAction()
+      break
+    default:
+      console.log('exceptional case')
   }
 }

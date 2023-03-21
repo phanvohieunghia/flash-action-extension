@@ -232,7 +232,6 @@ function cambridgeDictionariesAction() {
 
 function chatGPTAction() {
 	let searchContainer = ''
-	let index = 1
 	const test = document.querySelectorAll('textarea')
 	console.log(test)
 	test[0].addEventListener('input', (e) => {
@@ -260,7 +259,6 @@ function chatGPTAction() {
 		} else if (e.key === 'Enter') {
 			const elements = document.querySelectorAll('div')
 			for (const element of elements) {
-				console.log(element)
 				if (
 					element.innerText === searchContainer &&
 					element.firstChild.nodeType === 3
@@ -274,7 +272,10 @@ function chatGPTAction() {
 		} else if (e.ctrlKey && e.key === '|') {
 			const currentInput = document.querySelectorAll('textarea')[0]
 			const currentValue = currentInput.value
-			currentInput.value = `dịch sang tiếng anh: "${currentValue}"`
+			currentInput.value = `Dịch sang tiếng anh: "${currentValue}"`
+		} else if (e.key === 'Escape') {
+			const newTab = document.querySelectorAll('a')[1]
+			newTab?.click()
 		}
 	})
 }

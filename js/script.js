@@ -111,8 +111,10 @@ function youtubeAction() {
 			if (preElement) preElement.remove()
 			clearTimeout(timeout1)
 		}, 900)
-		const speedUI = document.querySelector('#content')
+		const speedUI = document.querySelector('body')
+		speedUI.style.height = '100vh'
 		speedUI.style.position = 'relative'
+
 		const child = document.createElement('div')
 		child.className = 'nghia-speed'
 		child.innerText = text

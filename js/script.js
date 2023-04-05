@@ -303,6 +303,6 @@ window.onload = function () {
 			chatGPTAction()
 			break
 		default:
-			console.log('exceptional case')
+			console.error('FLash Action: Exceptional case')
 	}
 }

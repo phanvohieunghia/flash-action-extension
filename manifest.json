@@ -6,7 +6,7 @@
 	"content_scripts": [
 		{
 			"matches": ["https://*/*"],
-			"css": ["./css/style.css"],
+			"css": ["./css/global.css"],
 			"js": ["./js/script.js"]
 		}
 	],

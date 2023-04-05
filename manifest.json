@@ -1,20 +1,23 @@
 {
-  "name": "Keyboard Action",
-  "description": "Build an Extension!",
-  "version": "1.0",
-  "manifest_version": 3,
-  "content_scripts": [
-    {
-      "matches": [
-        "https://*.google.com/*", 
-        "https://*.translate.google.com/*", 
-        "https://*.youtube.com/*", 
-        "https://*.oxfordlearnersdictionaries.com/*",
-        "https://*.cambridge.org/*",
-        "https://*.openai.com/*"
-      ],
-      "css": ["./css/style.css"],
-      "js": ["./js/script.js"]
-    }
-  ]
+	"name": "Flash Action",
+	"description": "Improve an Extension!",
+	"version": "1.0.1",
+	"manifest_version": 3,
+	"content_scripts": [
+		{
+			"matches": ["https://*/*"],
+			"css": ["./css/global.css"],
+			"js": ["./js/script.js"]
+		}
+	],
+	"action": {
+		"default_title": "Click to view a popup",
+		"default_popup": "./popup.html"
+	},
+	"icons": {
+		"16": "images/16.png",
+		"32": "images/32.png",
+		"48": "images/48.png",
+		"128": "images/128.png"
+	}
 }

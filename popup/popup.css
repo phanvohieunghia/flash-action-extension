@@ -1,3 +1,58 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
 .flash-action-wrap {
-	background-color: red;
+	min-width: 300px;
+	max-width: 500px;
+	padding: 10px;
+}
+
+.flash-action-wrap .item {
+	position: relative;
+	z-index: 999;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	border: 1px solid gray;
+	border-radius: 10px;
+	padding: 10px;
+	transition: all 0.2s ease;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+		rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.flash-action-wrap .item:hover {
+	transform: translateY(-4px);
+}
+
+.flash-action-wrap .item:not(:last-child) {
+	margin-bottom: 10px;
+}
+
+.flash-action-wrap .item .item-sub {
+	padding: 10px;
+	border: 1px solid gray;
+	border-radius: 10px;
+	display: flex;
+}
+
+.flash-action-wrap .item .item-sub:not(:last-child) {
+	margin-right: 10px;
+}
+
+.flash-action-wrap .item .item-sub.script {
+	flex-grow: 1;
+}
+
+.flash-action-wrap .item .item-sub.delete {
+	transition: all 0.2s ease;
+}
+
+.flash-action-wrap .item .item-sub.delete:hover {
+	background-color: black;
+	color: white;
+	cursor: pointer;
 }

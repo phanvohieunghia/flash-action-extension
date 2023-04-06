@@ -6,13 +6,13 @@
 	"content_scripts": [
 		{
 			"matches": ["https://*/*"],
-			"css": ["./css/global.css"],
-			"js": ["./js/script.js"]
+			"css": ["./global.css"],
+			"js": ["./background.js"]
 		}
 	],
 	"action": {
 		"default_title": "Click to view a popup",
-		"default_popup": "./popup.html"
+		"default_popup": "./popup/popup.html"
 	},
 	"icons": {
 		"16": "images/16.png",

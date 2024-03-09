@@ -57,7 +57,6 @@ function scrollToTop() {
 
 function translationAction() {
 	const translateElements = document.querySelectorAll('button')
-	console.log(translateElements)
 	if (translateElements && translateElements[28])
 		translateElements[28].style.transition = 'all 1s ease'
 	document.addEventListener('keydown', (e) => {
@@ -96,12 +95,12 @@ function translationAction() {
 		}
 	})
 	document.addEventListener('keydown', (e) => {
-		if (e.altKey && e.key === '1') document.getElementById('i8')?.click()
-		else if (e.altKey && e.key === '2') document.getElementById('i9')?.click()
-		else if (e.altKey && e.key === '3') document.getElementById('i10')?.click()
-		else if (e.altKey && e.key === '4') document.getElementById('i11')?.click()
-		else if (e.altKey && e.key === '5') document.getElementById('i12')?.click()
-		else if (e.altKey && e.key === '6') document.getElementById('i13')?.click()
+		if (e.altKey && e.key === '1') document.getElementById('i13')?.click()
+		else if (e.altKey && e.key === '2') document.getElementById('i14')?.click()
+		else if (e.altKey && e.key === '3') document.getElementById('i15')?.click()
+		else if (e.altKey && e.key === '4') document.getElementById('i16')?.click()
+		else if (e.altKey && e.key === '5') document.getElementById('i17')?.click()
+		else if (e.altKey && e.key === '6') document.getElementById('i18')?.click()
 	})
 }
 
@@ -216,11 +215,7 @@ function cambridgeDictionariesAction() {
 		} else if (e.altKey && e.key === ']') {
 			soundElements[1].click()
 		} else if (e.key === '/') {
-			console.log(inputElement)
-			window.scrollTo({
-				top: 0,
-				behavior: 'smooth',
-			})
+			scrollToTop()
 			const timeout = setTimeout(() => {
 				inputElement.setSelectionRange(
 					inputElement.value.length,
@@ -236,7 +231,6 @@ function cambridgeDictionariesAction() {
 function chatGPTAction() {
 	let searchContainer = ''
 	const test = document.querySelectorAll('textarea')
-	console.log(test)
 	test[0].addEventListener('input', (e) => {
 		searchContainer = e.target.value
 	})
@@ -283,6 +277,24 @@ function chatGPTAction() {
 	})
 }
 
+function youglishAction() {
+	document.addEventListener('keydown', (e) => {
+		if (e.key === '/') {
+			const currentInput = document.querySelector('input')
+			if (currentInput) {
+				const timeout = setTimeout(() => {
+					currentInput.setSelectionRange(
+						currentInput.value.length,
+						currentInput.value.length
+					)
+					currentInput.focus()
+					clearTimeout(timeout)
+				}, 100)
+			}
+		}
+	})
+}
+
 window.onload = function () {
 	switch (window.location.hostname) {
 		case 'www.google.com':
@@ -302,6 +314,9 @@ window.onload = function () {
 			break
 		case 'chat.openai.com':
 			chatGPTAction()
+			break
+		case 'youglish.com':
+			youglishAction()
 			break
 		default:
 			console.log('FLash Action: Exceptional case')

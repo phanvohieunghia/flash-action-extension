@@ -1,3 +1,23 @@
+function scrollToTop() {
+	window.scrollTo({
+		top: 0,
+		behavior: 'smooth',
+	})
+}
+
+function slashAction(currentElement, isScrop = false) {
+	isScrop ?? scrollToTop()
+
+	const timeout = setTimeout(() => {
+		currentElement.focus()
+		currentElement.setSelectionRange(
+			currentElement.value.length,
+			currentElement.value.length
+		)
+		clearTimeout(timeout)
+	}, 100)
+}
+
 function googleTabAction() {
 	const allElements = document.querySelectorAll('*')
 	const spellcheckElement = document.querySelectorAll('p>a>b>i')
@@ -32,27 +52,11 @@ function googleTabAction() {
 					currentInput.focus()
 				}
 			} else if (e.key === '/') {
-				const currentInput = document.querySelector('input')
-				if (currentInput) {
-					const timeout = setTimeout(() => {
-						currentInput.setSelectionRange(
-							currentInput.value.length,
-							currentInput.value.length
-						)
-						currentInput.focus()
-						clearTimeout(timeout)
-					}, 100)
-				}
+				const currentInput = document.querySelector('textarea')
+				slashAction(currentInput)
 			}
 		})
 	}, 300)
-}
-
-function scrollToTop() {
-	window.scrollTo({
-		top: 0,
-		behavior: 'smooth',
-	})
 }
 
 function translationAction() {
@@ -67,7 +71,7 @@ function translationAction() {
 			const currentButton = document.querySelectorAll('button')[28]
 			scrollToTop()
 			if (currentButton) currentButton.click()
-			const currentInput = document.querySelectorAll('input')[0]
+			const currentInput = document.querySelectorAll('textarea')[0]
 			if (currentInput) {
 				currentInput.value = ''
 				currentInput.focus()
@@ -77,15 +81,7 @@ function translationAction() {
 			if (currentButton) currentButton.click()
 		} else if (e.key === '/') {
 			const currentInput = document.querySelectorAll('textarea')[0]
-			scrollToTop()
-			const timeout = setTimeout(() => {
-				currentInput.setSelectionRange(
-					currentInput.value.length,
-					currentInput.value.length
-				)
-				currentInput.focus()
-				clearTimeout(timeout)
-			}, 100)
+			slashAction(currentInput)
 		}
 	})
 	document.addEventListener('keyup', (e) => {
@@ -186,11 +182,7 @@ function oxfordDictionariesAction() {
 		} else if (e.altKey && e.key === ']') {
 			soundElements[1].click()
 		} else if (e.key === '/') {
-			scrollToTop()
-			const timeout = setTimeout(() => {
-				inputElement.focus()
-				clearTimeout(timeout)
-			}, 10)
+			slashAction(inputElement)
 		}
 	})
 }
@@ -215,15 +207,7 @@ function cambridgeDictionariesAction() {
 		} else if (e.altKey && e.key === ']') {
 			soundElements[1].click()
 		} else if (e.key === '/') {
-			scrollToTop()
-			const timeout = setTimeout(() => {
-				inputElement.setSelectionRange(
-					inputElement.value.length,
-					inputElement.value.length
-				)
-				inputElement.focus()
-				clearTimeout(timeout)
-			}, 10)
+			slashAction(inputElement)
 		}
 	})
 }
@@ -244,15 +228,7 @@ function chatGPTAction() {
 			}
 		} else if (e.key === '/') {
 			const currentInput = document.querySelectorAll('textarea')[0]
-			scrollToTop()
-			const timeout = setTimeout(() => {
-				currentInput.setSelectionRange(
-					currentInput.value.length,
-					currentInput.value.length
-				)
-				currentInput.focus()
-				clearTimeout(timeout)
-			})
+			slashAction(currentInput)
 		} else if (e.key === 'Enter') {
 			const elements = document.querySelectorAll('div')
 			for (const element of elements) {
@@ -281,16 +257,7 @@ function youglishAction() {
 	document.addEventListener('keydown', (e) => {
 		if (e.key === '/') {
 			const currentInput = document.querySelector('input')
-			if (currentInput) {
-				const timeout = setTimeout(() => {
-					currentInput.setSelectionRange(
-						currentInput.value.length,
-						currentInput.value.length
-					)
-					currentInput.focus()
-					clearTimeout(timeout)
-				}, 100)
-			}
+			slashAction(currentInput)
 		}
 	})
 }

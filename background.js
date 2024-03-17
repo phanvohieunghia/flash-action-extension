@@ -178,9 +178,19 @@ function oxfordDictionariesAction() {
 			inputElement.value = ''
 			inputElement.focus()
 		} else if (e.altKey && e.key === '[') {
+			// pronoun U.K
 			soundElements[0].click()
 		} else if (e.altKey && e.key === ']') {
+			// pronoun U.S
 			soundElements[1].click()
+		} else if (e.altKey && e.key === '\\') {
+			// switch between verb and noun
+			const pathname = window.location.pathname.split(/\//)
+			let word = pathname[pathname.length - 1]
+			pathname[pathname.length - 1] = word.includes('1')
+				? word.replace('1', '2')
+				: word.replace('2', '1')
+			window.location.href = pathname[pathname.length - 1]
 		} else if (e.key === '/') {
 			slashAction(inputElement)
 		}

@@ -268,6 +268,12 @@ function youglishAction() {
 		if (e.key === '/') {
 			const currentInput = document.querySelector('input')
 			slashAction(currentInput)
+		} else if (e.key === 'k') {
+			const playButton = document.getElementById('b_pause')
+			playButton?.click()
+		} else if (e.key === 'r') {
+			const replayButton = document.getElementById('b_replay')
+			replayButton?.click()
 		}
 	})
 }

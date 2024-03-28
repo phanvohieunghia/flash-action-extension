@@ -44,7 +44,7 @@ function googleTabAction() {
 				}
 			})
 		})
-		document.addEventListener('keydown', (e) => {
+		window.addEventListener('keydown', (e) => {
 			if (e.altKey && e.key === 'q') {
 				const currentInput = document.querySelector('input')
 				if (currentInput) {
@@ -52,8 +52,21 @@ function googleTabAction() {
 					currentInput.focus()
 				}
 			} else if (e.key === '/') {
-				const currentInput = document.querySelector('textarea')
-				slashAction(currentInput)
+				const currentTextArea = document.querySelector('textarea')
+				currentTextArea && slashAction(currentTextArea)
+
+				const currentInput = document.querySelector('input')
+				currentInput && slashAction(currentInput)
+			} else if (e.altKey && e.key === 'i') {
+				const aELements = document.querySelectorAll('a')
+				Array.from(aELements)
+					.find((x) => x.textContent === 'Images')
+					?.click()
+			} else if (e.altKey && e.key === 'a') {
+				const aELements = document.querySelectorAll('a')
+				Array.from(aELements)
+					.find((x) => x.textContent === 'All')
+					?.click()
 			}
 		})
 	}, 300)
